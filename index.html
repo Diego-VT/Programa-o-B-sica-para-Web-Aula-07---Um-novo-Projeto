@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<!--
+
+    HTML 
+
+    HyperText
+
+    Hyper textos
+    São textos que aceitam links e audio visual
+
+    Markup
+    Marcação feitas com <tags>
+
+
+    Language
+    Linguagem
+
+-->
+
+
+<html>
+<!-- Tag HTML-->
+
+<head>
+    <meta charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Responsável por receber configurações da página-->
+    <title>Casa Linda</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style type="text/css">
+        /*
+
+BOX
+largura
+conteudo da caixa
+
+Espaçamentos
+Preenchimento
+Borddas
+
+Posicionamentos
+*/
+
+        /*GLOBAL*/
+        body {
+            background: #e5e5e5;
+            color: #24282B;
+
+            font-family: 'Montserrat', sans-serif;
+
+
+            margin: 0;
+        }
+
+        body.hideScroll {
+            overflow: hidden;
+
+        }
+
+
+        a {
+            color: #ff5e84;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+
+            text-decoration: underline;
+        }
+
+        p,
+        .description {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.1px;
+
+
+        }
+
+        .button {
+            background: #ff5e84;
+            color: white;
+
+            width: 150px;
+            height: 40px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0px 8px 16px #ff5e8432;
+        }
+
+        .button:hover {
+            text-decoration: none;
+            background-color: #0984e3;
+
+
+        }
+
+        /* Padrão*/
+
+        #container {
+            width: 80%;
+            max-width: 980px;
+
+            margin: 40px auto;
+
+            display: flex;
+
+        }
+
+        #intro {
+            width: 300px;
+
+            margin-right: 64px;
+        }
+
+        main {
+            margin: 32px 0;
+
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: space-evenly;
+
+            margin-bottom: 32px;
+
+        }
+
+        button {
+            background: none;
+            color: #ff5e84;
+
+            border: none;
+
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 18px;
+            letter-spacing: 0.2px;
+
+            cursor: pointer;
+
+            outline: none;
+
+        }
+
+        button:hover {
+            text-decoration: underline;
+
+        }
+
+
+        footer {
+            text-align: center;
+
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: 0.2px;
+
+            color: #777;
+        }
+
+        footer a {
+            opacity: 0.7;
+        }
+
+
+        /*last ideias*/
+        .idea {
+            display: flex;
+
+
+            background-color: #FFF;
+            box-shadow: 0 4px 16px -8px rgba(1, 1, 1, 0.1);
+            border-radius: 8px;
+
+            padding: 32px;
+
+            margin-bottom: 32px;
+        }
+
+        .idea img {
+            width: 60px;
+            height: 60px;
+            margin-right: 32px;
+
+        }
+
+        /*removendo a margin que o H3 está trazendo*/
+
+        .idea h3 {
+            margin: 0;
+        }
+
+        .idea p {
+            margin: 8px 0;
+            color: #777
+        }
+
+        .idea .description {
+            margin: 16px 0;
+        }
+
+        /*modal*/
+
+        #modal {
+            background: #ff5e84;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+
+
+
+            display: flex;
+            justify-content: center;
+
+            transition: 500ms;
+
+        }
+
+        #modal.addScroll {
+            overflow: auto;
+        }
+
+        #modal .content {
+            margin-top: 15%;
+
+            color: white;
+
+        }
+
+        #modal .content h1 {
+            text-align: center;
+
+            text-transform: uppercase;
+        }
+
+        #modal form {
+            width: 80%;
+            max-width: 800px;
+
+            margin: 0 auto 15%;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .content form div:nth-child(3),
+        .content form div:nth-child(4),
+        .content form div:nth-child(5) {
+            grid-column: span 2;
+        }
+
+
+        form input,
+        form textarea {
+            width: 100%;
+
+            padding: 12px;
+
+            box-sizing: border-box;
+
+            border-radius: 6px;
+            border: 1px solid rgba(141, 25, 52, 0.5);
+
+            outline: none;
+
+            font-size: 16px;
+        }
+
+        form label {
+            font-weight: 600;
+            line-height: 32px;
+            letter-spacing: 0.8px;
+
+        }
+
+        form a {
+
+            width: 150px;
+            height: 40px;
+
+            background-color: #ffffff22;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            border-radius: 6px;
+
+            align-self: end;
+
+            transition: 400ms;
+        }
+
+        form a:hover {
+
+            background: #FFF;
+            color: #ff5e84;
+
+            text-decoration: none;
+
+        }
+
+        form button {
+            background: white;
+
+            width: 150px;
+            height: 40px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            margin-top: 32px;
+
+            grid-column: 2;
+
+            justify-self: end;
+
+            transition: 400ms;
+
+        }
+
+        form button:hover {
+            background-color: #0984e3;
+            color: white;
+
+            text-decoration: none;
+        }
+
+        #modal.hide {
+            opacity: 0;
+            visibility: hidden;
+
+        }
+
+
+
+        /*#buttons, footer{
+    text-align: center;
+  
+}*/
+
+        /* IDEIAS.HTML*/
+        #page-ideas #container {
+            display: block;
+        }
+
+        #page-ideas header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #page-ideas nav {
+            display: flex;
+            align-items: center;
+        }
+
+        #page-ideas nav li {
+            list-style-type: none;
+
+            margin-right: 16px;
+        }
+
+        #page-ideas nav li a {
+            color: #24282B;
+        }
+
+        #page-ideas nav li a.button {
+            color: white;
+        }
+
+        #page-ideas nav li:last-child {
+            margin: 0;
+        }
+
+
+        section#title {
+            text-align: center;
+        }
+
+        section#title p {
+            opacity: 0.7;
+            margin: 0;
+
+        }
+
+        section#title h1 {
+            margin: 0;
+
+            font-size: 28px;
+
+        }
+
+        section#ideas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px
+        }
+
+        section#ideas .idea {
+            margin: 0;
+        }
+
+        #section#title,
+        #section#ideas,
+        footer {
+            margin-top: 64px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <section id="intro">
+
+            <header>
+                <a href="index.html">
+
+                    <img src="logo.png" alt="Imagem da LogoMarca">
+
+                </a>
+            </header>
+
+            <main>
+                <p>
+                    <a name="Palmas">Palmas</a> a capital do Estado, é o portal de entrada para as regiões turísticas do
+                    Tocantins.
+                    É moderna, planejada, com uma ampla estrutura de comércios e serviços, <strong>centro de convenções
+                        e shopping.</strong>
+                    Ideal para o turismo de negócios e eventos.
+                </p>
+
+                <p>
+                    As áreas verdes da cidade, avenidas largas e arborizadas e praias permanentes são cenários
+                    convidativos
+                    à prática esportiva ou simplesmente à contemplação visual.<strong> As praias Graciosa,
+                        do Prata e das Arnos, às margens do Lago</strong>, são os principais cartões-postais da cidade.
+                </p>
+
+                <p>
+                    Pontos turísticos
+                    Parque Cesamar e áreas verdes
+                    O Parque Cesamar é uma das principais áreas verdes de Palmas. Local tranquilo,
+                    ideal para os amantes da natureza e para os praticantes de esportes. Possui pista
+                    para corrida e caminhada com 2.840 metros, toda iluminada. Seu lago é formado pelo
+                    córrego Brejo Comprido.A área verde, mata típica do cerrado, tem trilha ecológica
+                    de 2 mil metros.
+                </p>
+
+            </main>
+
+
+            <section id="buttons"> 
+                <nav>             
+                <a href="ideias.html" class="button" click="onOff()on"> Ver Mais </a>
+                <li><a class="button" href="sobre.html" click="onOff()on">Sobre</a></li>
+                <a href="#Palmas">Topo</a>    
+            </nav>     
+            </section>
+
+            
+
+            <footer>
+                Com ❤ <a href="https://portal.to.gov.br/palmas/" target="_blank">Palmas</a>
+
+            </footer>
+
+        </section>
+
+        <section id="last-ideias">
+
+            <div class="idea">
+                <img src="https://image.flaticon.com/icons/svg/2729/2729007.svg" alt="Imagem de Curso de Programação">
+
+                <div class="content">
+                    <h3>Educação</h3>
+                    <p>Estudo</p>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum beatae rem nisi vitae,
+                        doloribus perferendis magnam, officia quae reiciendis non ab fugiat quasi! Quia aut esse rem
+                        suscipit asperiores!
+                    </div>
+                    <a href="https://seduc.to.gov.br/">Ir para Seduc</a>
+                </div>
+
+            </div>
+
+            <div class="idea">
+                <img src="https://www.flaticon.com/premium-icon/icons/svg/163/163797.svg" alt="Imagem de Exercícios">
+
+                <div class="content">
+                    <h3>Bares e Restaurante</h3>
+                    <p>Onde Comer</p>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum beatae rem nisi vitae,
+                        doloribus perferendis magnam, officia quae reiciendis non ab fugiat quasi! Quia aut esse rem
+                        suscipit asperiores!
+                    </div>
+                    <a href="https://www.tripadvisor.com.br/Restaurants-g668997-Palmas_State_of_Tocantins.html">Onde
+                        Comer</a>
+                </div>
+            </div>
+
+            <div class="idea">
+                <img src="https://image.flaticon.com/icons/svg/2729/2729027.svg" alt="Imagem de Meditação">
+
+                <div class="content">
+                    <h3>Lazer</h3>
+                    <p>Mentalidade</p>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum beatae rem nisi vitae,
+                        doloribus perferendis magnam, officia quae reiciendis non ab fugiat quasi! Quia aut esse rem
+                        suscipit asperiores!
+                    </div>
+                    <a
+                        href="https://turismo.to.gov.br/regioes-turisticas/serras-e-lago-/principais-atrativos/palmas/parque-cesamar-e-casa-sucuapara/">Ir
+                        para</a>
+                </div>
+
+            </div>
+
+            <div class="idea">
+                <img src="https://www.flaticon.com/premium-icon/icons/svg/202/202714.svg" alt="Imagem de Meditação">
+
+                <div class="content">
+                    <h3>Hotéis </h3>
+                    <p>lugares para se hospedar</p>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum beatae rem nisi vitae,
+                        doloribus perferendis magnam, officia quae reiciendis non ab fugiat quasi! Quia aut esse rem
+                        suscipit asperiores!
+                    </div>
+                    <a href="https://www.tripadvisor.com.br/Hotels-g668997-Palmas_State_of_Tocantins-Hotels.html">Hotéis
+                        em Palmas</a>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!--Modal-->
+
+    <div id="modal" class="hide">
+        <div class="content">
+            <h1>Nova Ideia</h1>
+
+            <form action="">
+
+                <div class="input-wrapper">
+                    <label for="title">Titulo da ideia</label>
+                    <input type="text" name="title">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="category">Categoria</label>
+                    <input type="text" name="category">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="image">Link da imagem</label>
+                    <input type="url" name="image">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="description">Digite uma descrição para essa ideia.</label>
+                    <textarea name="description" cols="30" rows="10"></textarea>
+                </div>
+                <div class="input-wrapper">
+                    <label for="link">Link da ideia</label>
+                    <input type="url" name="link">
+                </div>
+
+
+                <a href="#" onclick="onOff()">Voltar</a>
+                <button>Salvar</button>
+
+            </form>
+        </div>
+    </div>
+
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
